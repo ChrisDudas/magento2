@@ -470,11 +470,13 @@ return array(
     '2451819c9c2b818eb9be5f36b51585ea' => $vendorDir . '/magento/module-wishlist-graph-ql/registration.php',
     'd04d5084d3db908d3544ed506541866a' => $vendorDir . '/magento/theme-adminhtml-backend/registration.php',
     '7102f9cf0d2c08bc731a7e185c1c8bfc' => $vendorDir . '/magento/theme-frontend-luma/registration.php',
+    '6b5b87bda6fedcf6ef8605219c8b67f2' => $vendorDir . '/mageplaza/module-core/registration.php',
     '6124b4c8570aa390c21fafd04a26c69f' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
     '3109cb1a231dcd04bee1f9f620d46975' => $vendorDir . '/paragonie/sodium_compat/autoload.php',
     '7adedf5aab7954091befcc50d50f5120' => $vendorDir . '/paypal/module-braintree-graph-ql/registration.php',
     'aa75ea0761a2f40c1f3b32ad314f86c4' => $vendorDir . '/phpseclib/mcrypt_compat/lib/mcrypt.php',
     '43a898c2b52882ecca1f7b0558d3af2c' => $vendorDir . '/magento/composer-root-update-plugin/registration.php',
     'eda65932675b68b5aee4503e0762d64d' => $vendorDir . '/magento/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/_bootstrap.php',
+    'a77049f7f3ca4c78b9e3635c8f857d84' => $vendorDir . '/mageplaza/module-smtp/registration.php',
     'b4cf39431a4b949eea8aa69ebb3d39da' => $baseDir . '/app/etc/NonComposerComponentRegistration.php',
 );

@@ -1,4 +1,4 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1607777240;s:6:"expire";i:9999999999;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1608281946;s:6:"expire";i:9999999999;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
 <?xml version="1.0"?>
 <layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><handle id="adminhtml_dashboard_index"><body>
    <referenceContainer name="content">
@@ -7977,6 +7977,43 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1607777240;s:6:"expire";i:9999999999;s:4:"t
 </handle><handle id="adminhtml_system_config_edit"><head>
    <css src="Klarna_Core::styles.css"/>
 </head>
+</handle><handle id="adminhtml_system_config_edit"><head>
+   <script src="Mageplaza_Core::js/jscolor.min.js"/>
+</head>
+</handle><handle id="default"><head>
+   <script src="Mageplaza_Core::js/help.js"/>
+</head>
+</handle><handle id="mp_font_awesome"><head>
+   <css src="https://use.fontawesome.com/releases/v5.10.1/css/all.css" src_type="url"/>
+</head>
+</handle><handle id="adminhtml_smtp_abandonedcart"><update handle="styles"/>
+<body>
+   <referenceContainer name="content">
+      <uiComponent name="mpsmtp_abandoned_cart_grid"/>
+   </referenceContainer>
+</body>
+</handle><handle id="adminhtml_smtp_abandonedcart_view"><update handle="editor"/>
+<update handle="sales_order_create_item_price"/>
+<body>
+   <referenceContainer name="content">
+      <block class="Mageplaza\Smtp\Block\Adminhtml\AbandonedCart\Edit" name="mageplaza_giftcard_code_edit"/>
+   </referenceContainer>
+</body>
+</handle><handle id="adminhtml_smtp_log"><update handle="styles"/>
+<body>
+   <referenceContainer name="content">
+      <uiComponent name="mpsmtp_emails_log_grid"/>
+   </referenceContainer>
+</body>
+</handle><handle id="adminhtml_smtp_marketing"><head>
+   <css src="Mageplaza_Smtp::css/iframe.css"/>
+</head>
+<update handle="styles"/>
+<body>
+   <referenceContainer name="content">
+      <block class="Magento\Backend\Block\Template" name="smtp_marketing" template="Mageplaza_Smtp::marketing.phtml" cacheable="false"/>
+   </referenceContainer>
+</body>
 </handle><handle id="adminhtml_system_config_edit"><head>
    <css src="PayPal_Braintree::styles.css"/>
    <script src="PayPal_Braintree::js/system.js"/>

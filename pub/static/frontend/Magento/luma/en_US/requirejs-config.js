@@ -6,77 +6,6 @@
  */
 
 var config = {
-    waitSeconds: 0,
-    map: {
-        '*': {
-            'ko': 'knockoutjs/knockout',
-            'knockout': 'knockoutjs/knockout',
-            'mageUtils': 'mage/utils/main',
-            'rjsResolver': 'mage/requirejs/resolver'
-        }
-    },
-    shim: {
-        'jquery/jquery-migrate': ['jquery'],
-        'jquery/jstree/jquery.hotkeys': ['jquery'],
-        'jquery/hover-intent': ['jquery'],
-        'mage/adminhtml/backup': ['prototype'],
-        'mage/captcha': ['prototype'],
-        'mage/new-gallery': ['jquery'],
-        'mage/webapi': ['jquery'],
-        'jquery/ui': ['jquery'],
-        'MutationObserver': ['es6-collections'],
-        'matchMedia': {
-            'exports': 'mediaCheck'
-        },
-        'magnifier/magnifier': ['jquery']
-    },
-    paths: {
-        'jquery/validate': 'jquery/jquery.validate',
-        'jquery/hover-intent': 'jquery/jquery.hoverIntent',
-        'jquery/file-uploader': 'jquery/fileUploader/jquery.fileuploader',
-        'prototype': 'legacy-build.min',
-        'jquery/jquery-storageapi': 'jquery/jquery.storageapi.min',
-        'text': 'mage/requirejs/text',
-        'domReady': 'requirejs/domReady',
-        'spectrum': 'jquery/spectrum/spectrum',
-        'tinycolor': 'jquery/spectrum/tinycolor',
-        'jquery-ui-modules': 'jquery/ui-modules'
-    },
-    deps: [
-        'jquery/jquery-migrate'
-    ],
-    config: {
-        mixins: {
-            'jquery/jstree/jquery.jstree': {
-                'mage/backend/jstree-mixin': true
-            },
-            'jquery': {
-                'jquery/patches/jquery': true
-            }
-        },
-        text: {
-            'headers': {
-                'X-Requested-With': 'XMLHttpRequest'
-            }
-        }
-    }
-};
-
-require(['jquery'], function ($) {
-    'use strict';
-
-    $.noConflict();
-});
-
-require.config(config);
-})();
-(function() {
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
-var config = {
     map: {
         '*': {
             'rowBuilder':             'Magento_Theme/js/row-builder',
@@ -153,6 +82,77 @@ require.config(config);
  */
 
 var config = {
+    waitSeconds: 0,
+    map: {
+        '*': {
+            'ko': 'knockoutjs/knockout',
+            'knockout': 'knockoutjs/knockout',
+            'mageUtils': 'mage/utils/main',
+            'rjsResolver': 'mage/requirejs/resolver'
+        }
+    },
+    shim: {
+        'jquery/jquery-migrate': ['jquery'],
+        'jquery/jstree/jquery.hotkeys': ['jquery'],
+        'jquery/hover-intent': ['jquery'],
+        'mage/adminhtml/backup': ['prototype'],
+        'mage/captcha': ['prototype'],
+        'mage/new-gallery': ['jquery'],
+        'mage/webapi': ['jquery'],
+        'jquery/ui': ['jquery'],
+        'MutationObserver': ['es6-collections'],
+        'matchMedia': {
+            'exports': 'mediaCheck'
+        },
+        'magnifier/magnifier': ['jquery']
+    },
+    paths: {
+        'jquery/validate': 'jquery/jquery.validate',
+        'jquery/hover-intent': 'jquery/jquery.hoverIntent',
+        'jquery/file-uploader': 'jquery/fileUploader/jquery.fileuploader',
+        'prototype': 'legacy-build.min',
+        'jquery/jquery-storageapi': 'jquery/jquery.storageapi.min',
+        'text': 'mage/requirejs/text',
+        'domReady': 'requirejs/domReady',
+        'spectrum': 'jquery/spectrum/spectrum',
+        'tinycolor': 'jquery/spectrum/tinycolor',
+        'jquery-ui-modules': 'jquery/ui-modules'
+    },
+    deps: [
+        'jquery/jquery-migrate'
+    ],
+    config: {
+        mixins: {
+            'jquery/jstree/jquery.jstree': {
+                'mage/backend/jstree-mixin': true
+            },
+            'jquery': {
+                'jquery/patches/jquery': true
+            }
+        },
+        text: {
+            'headers': {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        }
+    }
+};
+
+require(['jquery'], function ($) {
+    'use strict';
+
+    $.noConflict();
+});
+
+require.config(config);
+})();
+(function() {
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+var config = {
     map: {
         '*': {
             quickSearch: 'Magento_Search/js/form-mini',
@@ -211,19 +211,11 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            compareList:            'Magento_Catalog/js/list',
-            relatedProducts:        'Magento_Catalog/js/related-products',
-            upsellProducts:         'Magento_Catalog/js/upsell-products',
-            productListToolbarForm: 'Magento_Catalog/js/product/list/toolbar',
-            catalogGallery:         'Magento_Catalog/js/gallery',
-            catalogAddToCart:       'Magento_Catalog/js/catalog-add-to-cart'
-        }
-    },
-    config: {
-        mixins: {
-            'Magento_Theme/js/view/breadcrumbs': {
-                'Magento_Catalog/js/product/breadcrumbs': true
-            }
+            priceBox:             'Magento_Catalog/js/price-box',
+            priceOptionDate:      'Magento_Catalog/js/price-option-date',
+            priceOptionFile:      'Magento_Catalog/js/price-option-file',
+            priceOptions:         'Magento_Catalog/js/price-options',
+            priceUtils:           'Magento_Catalog/js/price-utils'
         }
     }
 };
@@ -239,11 +231,19 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            priceBox:             'Magento_Catalog/js/price-box',
-            priceOptionDate:      'Magento_Catalog/js/price-option-date',
-            priceOptionFile:      'Magento_Catalog/js/price-option-file',
-            priceOptions:         'Magento_Catalog/js/price-options',
-            priceUtils:           'Magento_Catalog/js/price-utils'
+            compareList:            'Magento_Catalog/js/list',
+            relatedProducts:        'Magento_Catalog/js/related-products',
+            upsellProducts:         'Magento_Catalog/js/upsell-products',
+            productListToolbarForm: 'Magento_Catalog/js/product/list/toolbar',
+            catalogGallery:         'Magento_Catalog/js/gallery',
+            catalogAddToCart:       'Magento_Catalog/js/catalog-add-to-cart'
+        }
+    },
+    config: {
+        mixins: {
+            'Magento_Theme/js/view/breadcrumbs': {
+                'Magento_Catalog/js/product/breadcrumbs': true
+            }
         }
     }
 };
@@ -332,8 +332,11 @@ require.config(config);
  */
 
 var config = {
-    paths: {
-        'jquery/jquery-storageapi': 'Magento_Cookie/js/jquery.storageapi.extended'
+    map: {
+        '*': {
+            requireCookie: 'Magento_Cookie/js/require-cookie',
+            cookieNotices: 'Magento_Cookie/js/notices'
+        }
     }
 };
 
@@ -346,11 +349,8 @@ require.config(config);
  */
 
 var config = {
-    map: {
-        '*': {
-            requireCookie: 'Magento_Cookie/js/require-cookie',
-            cookieNotices: 'Magento_Cookie/js/notices'
-        }
+    paths: {
+        'jquery/jquery-storageapi': 'Magento_Cookie/js/jquery.storageapi.extended'
     }
 };
 
@@ -828,13 +828,11 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            editTrigger: 'mage/edit-trigger',
-            addClass: 'Magento_Translation/js/add-class',
-            'Magento_Translation/add-class': 'Magento_Translation/js/add-class'
+            mageTranslationDictionary: 'Magento_Translation/js/mage-translation-dictionary'
         }
     },
     deps: [
-        'mage/translate-inline'
+        'mageTranslationDictionary'
     ]
 };
 
@@ -849,11 +847,13 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            mageTranslationDictionary: 'Magento_Translation/js/mage-translation-dictionary'
+            editTrigger: 'mage/edit-trigger',
+            addClass: 'Magento_Translation/js/add-class',
+            'Magento_Translation/add-class': 'Magento_Translation/js/add-class'
         }
     },
     deps: [
-        'mageTranslationDictionary'
+        'mage/translate-inline'
     ]
 };
 
@@ -1025,19 +1025,43 @@ var config = {
 require.config(config);
 })();
 (function() {
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Core
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
 var config = {
-    config: {
-        mixins: {
-            'Magento_Checkout/js/model/step-navigator': {
-                'PayPal_Braintree/js/model/step-navigator-mixin': true
-            }
-        }
+    paths: {
+        'mageplaza/core/jquery/popup': 'Mageplaza_Core/js/jquery.magnific-popup.min',
+        'mageplaza/core/owl.carousel': 'Mageplaza_Core/js/owl.carousel.min',
+        'mageplaza/core/bootstrap': 'Mageplaza_Core/js/bootstrap.min',
+        mpIonRangeSlider: 'Mageplaza_Core/js/ion.rangeSlider.min',
+        touchPunch: 'Mageplaza_Core/js/jquery.ui.touch-punch.min',
+        mpDevbridgeAutocomplete: 'Mageplaza_Core/js/jquery.autocomplete.min'
     },
-    map: {
-        '*': {
-            braintreeCheckoutPayPalAdapter: 'PayPal_Braintree/js/view/payment/adapter'
-        }
-    },
+    shim: {
+        "mageplaza/core/jquery/popup": ["jquery"],
+        "mageplaza/core/owl.carousel": ["jquery"],
+        "mageplaza/core/bootstrap": ["jquery"],
+        mpIonRangeSlider: ["jquery"],
+        mpDevbridgeAutocomplete: ["jquery"],
+        touchPunch: ['jquery', 'jquery/ui']
+    }
 };
 
 require.config(config);
@@ -1066,6 +1090,24 @@ var config = {
         "braintreeLpm": "https://js.braintreegateway.com/web/3.63.0/js/local-payment.min",
         "googlePayLibrary": "https://pay.google.com/gp/p/js/pay"
     }
+};
+
+require.config(config);
+})();
+(function() {
+var config = {
+    config: {
+        mixins: {
+            'Magento_Checkout/js/model/step-navigator': {
+                'PayPal_Braintree/js/model/step-navigator-mixin': true
+            }
+        }
+    },
+    map: {
+        '*': {
+            braintreeCheckoutPayPalAdapter: 'PayPal_Braintree/js/view/payment/adapter'
+        }
+    },
 };
 
 require.config(config);
