@@ -1,4 +1,4 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1608281946;s:6:"expire";i:9999999999;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1608624766;s:6:"expire";i:9999999999;s:4:"tags";s:37:"09f_LAYOUT_GENERAL_CACHE_TAG,09f_MAGE";}
 <?xml version="1.0"?>
 <layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><handle id="adminhtml_dashboard_index"><body>
    <referenceContainer name="content">
@@ -7503,6 +7503,278 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1608281946;s:6:"expire";i:9999999999;s:4:"t
 <body>
    <referenceContainer name="content">
       <uiComponent name="bulk_listing"/>
+   </referenceContainer>
+</body>
+</handle><handle id="adminhtml_user_edit"><head>
+   <css src="Magento_TwoFactorAuth::css/tfa.css"/>
+</head>
+<body>
+   <uiComponent name="tfa_edit_user_form"/>
+</body>
+</handle><handle id="tfa_authy_auth"><update handle="admin_login"/>
+<update handle="tfa_screen"/>
+<head>
+   <css src="Magento_TwoFactorAuth::css/auth.css"/>
+   <css src="Magento_TwoFactorAuth::css/authy.css"/>
+</head>
+<body>
+   <referenceContainer name="login.content">
+      <block class="Magento\TwoFactorAuth\Block\Provider\Authy\Auth" name="content" template="Magento_TwoFactorAuth::tfa/provider/auth.phtml">
+         <arguments>
+            <argument name="jsLayout" xsi:type="array">
+               <item name="components" xsi:type="array">
+                  <item name="tfa-auth" xsi:type="array">
+                     <item name="component" xsi:type="string">Magento_TwoFactorAuth/js/authy/auth</item>
+                  </item>
+               </item>
+            </argument>
+         </arguments>
+         <block class="Magento\TwoFactorAuth\Block\ChangeProvider" name="change-provider" template="Magento_TwoFactorAuth::tfa/change_provider.phtml">
+            <arguments>
+               <argument name="provider" xsi:type="string">authy</argument>
+               <argument name="jsLayout" xsi:type="array">
+                  <item name="components" xsi:type="array">
+                     <item name="tfa-change-provider" xsi:type="array">
+                        <item name="component" xsi:type="string">Magento_TwoFactorAuth/js/change_provider</item>
+                     </item>
+                  </item>
+               </argument>
+            </arguments>
+         </block>
+      </block>
+   </referenceContainer>
+</body>
+</handle><handle id="tfa_authy_configure"><update handle="admin_login"/>
+<update handle="tfa_screen"/>
+<head>
+   <css src="Magento_TwoFactorAuth::css/auth.css"/>
+   <css src="Magento_TwoFactorAuth::css/authy.css"/>
+</head>
+<body>
+   <referenceContainer name="login.content">
+      <block class="Magento\TwoFactorAuth\Block\Provider\Authy\Configure" name="content" template="Magento_TwoFactorAuth::tfa/provider/configure.phtml">
+         <arguments>
+            <argument name="jsLayout" xsi:type="array">
+               <item name="components" xsi:type="array">
+                  <item name="tfa-configure" xsi:type="array">
+                     <item name="component" xsi:type="string">Magento_TwoFactorAuth/js/authy/configure</item>
+                     <item name="children" xsi:type="array">
+                        <item name="register" xsi:type="array">
+                           <item name="component" xsi:type="string">Magento_TwoFactorAuth/js/authy/configure/register</item>
+                           <item name="displayArea" xsi:type="string">step-register</item>
+                        </item>
+                        <item name="verify" xsi:type="array">
+                           <item name="component" xsi:type="string">Magento_TwoFactorAuth/js/authy/configure/verify</item>
+                           <item name="displayArea" xsi:type="string">step-verify</item>
+                        </item>
+                     </item>
+                  </item>
+               </item>
+            </argument>
+         </arguments>
+      </block>
+      <block class="Magento\TwoFactorAuth\Block\ConfigureLater" name="configure-later" template="Magento_TwoFactorAuth::tfa/configure_later.phtml">
+         <arguments>
+            <argument name="provider" xsi:type="string">authy</argument>
+         </arguments>
+      </block>
+   </referenceContainer>
+</body>
+</handle><handle id="tfa_duo_auth"><update handle="admin_login"/>
+<update handle="tfa_screen"/>
+<head>
+   <css src="Magento_TwoFactorAuth::css/auth.css"/>
+   <css src="Magento_TwoFactorAuth::css/duo.css"/>
+</head>
+<body>
+   <referenceContainer name="login.content">
+      <block class="Magento\TwoFactorAuth\Block\Provider\Duo\Auth" name="content" template="Magento_TwoFactorAuth::tfa/provider/auth.phtml">
+         <arguments>
+            <argument name="jsLayout" xsi:type="array">
+               <item name="components" xsi:type="array">
+                  <item name="tfa-auth" xsi:type="array">
+                     <item name="component" xsi:type="string">Magento_TwoFactorAuth/js/duo/auth</item>
+                  </item>
+               </item>
+            </argument>
+         </arguments>
+         <block class="Magento\TwoFactorAuth\Block\ChangeProvider" name="change-provider" template="Magento_TwoFactorAuth::tfa/change_provider.phtml">
+            <arguments>
+               <argument name="provider" xsi:type="string">duo_security</argument>
+               <argument name="jsLayout" xsi:type="array">
+                  <item name="components" xsi:type="array">
+                     <item name="tfa-change-provider" xsi:type="array">
+                        <item name="component" xsi:type="string">Magento_TwoFactorAuth/js/change_provider</item>
+                     </item>
+                  </item>
+               </argument>
+            </arguments>
+         </block>
+      </block>
+      <block class="Magento\TwoFactorAuth\Block\ConfigureLater" name="configure-later" template="Magento_TwoFactorAuth::tfa/configure_later.phtml">
+         <arguments>
+            <argument name="provider" xsi:type="string">duo_security</argument>
+         </arguments>
+      </block>
+   </referenceContainer>
+</body>
+</handle><handle id="tfa_google_auth"><update handle="admin_login"/>
+<update handle="tfa_screen"/>
+<head>
+   <css src="Magento_TwoFactorAuth::css/auth.css"/>
+   <css src="Magento_TwoFactorAuth::css/google.css"/>
+</head>
+<body>
+   <referenceContainer name="login.content">
+      <block class="Magento\TwoFactorAuth\Block\Provider\Google\Auth" name="content" template="Magento_TwoFactorAuth::tfa/provider/auth.phtml">
+         <arguments>
+            <argument name="jsLayout" xsi:type="array">
+               <item name="components" xsi:type="array">
+                  <item name="tfa-auth" xsi:type="array">
+                     <item name="component" xsi:type="string">Magento_TwoFactorAuth/js/google/auth</item>
+                  </item>
+               </item>
+            </argument>
+         </arguments>
+         <block class="Magento\TwoFactorAuth\Block\ChangeProvider" name="change-provider" template="Magento_TwoFactorAuth::tfa/change_provider.phtml">
+            <arguments>
+               <argument name="provider" xsi:type="string">google</argument>
+               <argument name="jsLayout" xsi:type="array">
+                  <item name="components" xsi:type="array">
+                     <item name="tfa-change-provider" xsi:type="array">
+                        <item name="component" xsi:type="string">Magento_TwoFactorAuth/js/change_provider</item>
+                     </item>
+                  </item>
+               </argument>
+            </arguments>
+         </block>
+      </block>
+   </referenceContainer>
+</body>
+</handle><handle id="tfa_google_configure"><update handle="admin_login"/>
+<update handle="tfa_screen"/>
+<head>
+   <css src="Magento_TwoFactorAuth::css/auth.css"/>
+   <css src="Magento_TwoFactorAuth::css/google.css"/>
+</head>
+<body>
+   <referenceContainer name="login.content">
+      <block class="Magento\TwoFactorAuth\Block\Provider\Google\Configure" name="content" template="Magento_TwoFactorAuth::tfa/provider/configure.phtml">
+         <arguments>
+            <argument name="jsLayout" xsi:type="array">
+               <item name="components" xsi:type="array">
+                  <item name="tfa-configure" xsi:type="array">
+                     <item name="component" xsi:type="string">Magento_TwoFactorAuth/js/google/auth</item>
+                     <item name="template" xsi:type="string">Magento_TwoFactorAuth/google/configure</item>
+                  </item>
+               </item>
+            </argument>
+         </arguments>
+      </block>
+      <block class="Magento\TwoFactorAuth\Block\ConfigureLater" name="configure-later" template="Magento_TwoFactorAuth::tfa/configure_later.phtml">
+         <arguments>
+            <argument name="provider" xsi:type="string">google</argument>
+         </arguments>
+      </block>
+   </referenceContainer>
+</body>
+</handle><handle id="tfa_screen"><head>
+   <css src="Magento_TwoFactorAuth::css/tfa-screen.css"/>
+</head>
+<body>
+   <referenceContainer name="login.content">
+      <block class="Magento\Framework\View\Element\Html\Link" name="logout.link">
+         <arguments>
+            <argument name="label" translate="false" xsi:type="string">Logout</argument>
+            <argument name="path" translate="false" xsi:type="string">adminhtml/auth/logout</argument>
+            <argument name="class" translate="false" xsi:type="string">tfa-logout-link</argument>
+         </arguments>
+      </block>
+   </referenceContainer>
+</body>
+</handle><handle id="tfa_tfa_accessdenied"><update handle="admin_login"/>
+<update handle="tfa_screen"/>
+<body>
+   <referenceContainer name="login.content">
+      <block class="Magento\Backend\Block\Denied" name="content.denied" template="Magento_Backend::admin/access_denied.phtml"/>
+   </referenceContainer>
+</body>
+</handle><handle id="tfa_tfa_configure"><update handle="admin_login"/>
+<update handle="formkey"/>
+<update handle="tfa_screen"/>
+<head>
+   <css src="Magento_TwoFactorAuth::css/auth.css"/>
+</head>
+<body>
+   <referenceContainer name="login.content">
+      <block class="Magento\TwoFactorAuth\Block\Configure" name="content" template="Magento_TwoFactorAuth::tfa/configure.phtml"/>
+   </referenceContainer>
+</body>
+</handle><handle id="tfa_tfa_requestconfig"><update handle="admin_login"/>
+<update handle="tfa_screen"/>
+<update handle="tfa_screen"/>
+<body>
+   <referenceContainer name="login.content">
+      <block class="Magento\Backend\Block\Template" name="content" template="Magento_TwoFactorAuth::tfa/request_config.phtml"/>
+   </referenceContainer>
+</body>
+</handle><handle id="tfa_u2f_auth"><update handle="admin_login"/>
+<update handle="tfa_screen"/>
+<head>
+   <css src="Magento_TwoFactorAuth::css/u2f.css"/>
+   <css src="Magento_TwoFactorAuth::css/auth.css"/>
+</head>
+<body>
+   <referenceContainer name="login.content">
+      <block class="Magento\TwoFactorAuth\Block\Provider\U2fKey\Auth" name="content" template="Magento_TwoFactorAuth::tfa/provider/auth.phtml">
+         <arguments>
+            <argument name="jsLayout" xsi:type="array">
+               <item name="components" xsi:type="array">
+                  <item name="tfa-auth" xsi:type="array">
+                     <item name="component" xsi:type="string">Magento_TwoFactorAuth/js/u2fkey/auth</item>
+                  </item>
+               </item>
+            </argument>
+         </arguments>
+         <block class="Magento\TwoFactorAuth\Block\ChangeProvider" name="change-provider" template="Magento_TwoFactorAuth::tfa/change_provider.phtml">
+            <arguments>
+               <argument name="provider" xsi:type="string">u2fkey</argument>
+               <argument name="jsLayout" xsi:type="array">
+                  <item name="components" xsi:type="array">
+                     <item name="tfa-change-provider" xsi:type="array">
+                        <item name="component" xsi:type="string">Magento_TwoFactorAuth/js/change_provider</item>
+                     </item>
+                  </item>
+               </argument>
+            </arguments>
+         </block>
+      </block>
+   </referenceContainer>
+</body>
+</handle><handle id="tfa_u2f_configure"><update handle="admin_login"/>
+<update handle="tfa_screen"/>
+<head>
+   <css src="Magento_TwoFactorAuth::css/auth.css"/>
+   <css src="Magento_TwoFactorAuth::css/u2f.css"/>
+</head>
+<body>
+   <referenceContainer name="login.content">
+      <block class="Magento\TwoFactorAuth\Block\Provider\U2fKey\Configure" name="content" template="Magento_TwoFactorAuth::tfa/provider/configure.phtml">
+         <arguments>
+            <argument name="jsLayout" xsi:type="array">
+               <item name="components" xsi:type="array">
+                  <item name="tfa-configure" xsi:type="array">
+                     <item name="component" xsi:type="string">Magento_TwoFactorAuth/js/u2fkey/configure</item>
+                  </item>
+               </item>
+            </argument>
+         </arguments>
+      </block>
+      <block class="Magento\TwoFactorAuth\Block\ConfigureLater" name="configure-later" template="Magento_TwoFactorAuth::tfa/configure_later.phtml">
+         <arguments>
+            <argument name="provider" xsi:type="string">u2fkey</argument>
+         </arguments>
+      </block>
    </referenceContainer>
 </body>
 </handle><handle id="catalog_product_new"><body>
